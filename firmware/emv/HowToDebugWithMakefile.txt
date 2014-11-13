@@ -1,0 +1,35 @@
+How to debug an application when using the Makefile:
+----------------------------------------------------
+
+1. Define in the Makefile the variable DEBUG_INFO. E.g. by writing the following line:
+   DEBUG=1 
+
+2. clear and recompile, by calling:
+   make clean all
+
+3. Start the Debugger by calling the Windows Program:
+   MPLAB IDE
+   that is part of the Microchip Tool chain. 
+
+4. Select from the Menu "Debugger" "Select Tool" "MPLAB ICD 3"
+
+5. Select from the Menu "File" "Import" and select the "*.cof" file from the "build" directory.
+   The "build" directory is the directory you specified in the Makefile for the variable
+   BUILD_DIR. The cof File will have the name $(BUILD_DIR)\$(TARGET).cof
+
+6. Select from the Menu "Debugger" "Program"
+
+7. Open the source file in that you want to set a breakpoint (by using Menu "File" "Open").
+   Go to the desired line in the sourcefile and set your breakpoint using the context-menu.
+   Or place a breakpoint through the Menu "Debugger" "Breakpoints".
+
+8. Start the debugger through Menu "Debugger" "Run" (or type F9).
+
+Important issue:
+---------------
+
+The debugger always uses memory adress 0x800 till 0x850 for internal purposes. So make sure that
+this region is available for the debugger. Set __DATA_BASE in the *.gld file to 0x800!!!
+No matter what region you allocate the __DATA_BASE the debugger will use 0x800.
+ 
+    

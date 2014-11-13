@@ -1,0 +1,1 @@
+const unsigned char SPI_DEVICES_SENPINS[] = {_RB9, _RB9};

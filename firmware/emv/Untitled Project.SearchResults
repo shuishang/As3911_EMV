@@ -1,0 +1,5 @@
+---- AS3911_REG_RX_CONF3 Matches (4 in 3 files) ----
+As3911_def.h (src\as3911):#define AS3911_REG_RX_CONF3                     0x0C        /*!< RW Receiver Configuration Register 3. */
+As3911_gain_adjustment.c (src\as3911):    as3911WriteRegister(AS3911_REG_RX_CONF3, as3911GainTable->y[index]);
+Main.c (src):        as3911ModifyRegister(AS3911_REG_RX_CONF3, 0xFC, ((rxData[4] & 0x07) << 5) | ((rxData[5] & 0x07) << 2));
+Main.c (src):        displayRegisterValue(AS3911_REG_RX_CONF3);
